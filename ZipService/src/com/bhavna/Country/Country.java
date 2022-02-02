@@ -15,17 +15,17 @@ package com.bhavna.Country;
 public class Country {
 	private String countryName;
 
-	public Country(String countryName) // one parameterized constructor
+	public Country(String countryName) // one parameterized constructor...
 	{
 		this.countryName = countryName;
 	}
 
-	public String getCountryName() // getter method for getting the country name
+	public String getCountryName() // getter method for getting the country name...
 	{
 		return countryName;
 	}
 
-	public void setCountryName(String countryName) // setter method to set the country
+	public void setCountryName(String countryName) // setter method to set the country name...
 	{
 		this.countryName = countryName;
 	}

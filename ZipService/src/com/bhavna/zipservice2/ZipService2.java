@@ -1,3 +1,15 @@
+//
+//Design a zip lookup service that takes the zip code as an input parameter and returns the corresponding details.
+//prerequisites:
+//1. Create a multi-level class (parent-child), adding attributes(address information) of all types String, int, long, Date
+//parent-child relationship like Country -> State -> Area(zip)
+//2. In order to do the operation creates two separate classes ZipServicev1(base) and ZipServicev2(child of v1)
+//3. Create a main class and do the operation(get, set, print)
+//4. Think of using polymorphism, inheritance, abstraction & encapsulation
+//5. use the collection as in memory to keep the data
+//6. Use loop/iterator to print all record
+//7. Use of interface, static method, any validation will be appreciated
+
 package com.bhavna.zipservice2;
 
 import java.util.HashMap;
@@ -8,11 +20,9 @@ import java.util.Iterator;
 import com.bhavna.Area.Area;
 import com.bhavna.zipservice1.ZipService1;
 
-public class ZipService2 extends ZipService1 // inheriting the super class
+public class ZipService2 extends ZipService1 // inheriting the super class...
 {
 	Scanner scanner = new Scanner(System.in);
-
-//	ZipService2  ser2= new ZipService2(); //creating the object for zipservice2
 
 	Map<Integer, Area> map = new HashMap<>(); // using the map to store the values....
 	{
@@ -28,15 +38,16 @@ public class ZipService2 extends ZipService1 // inheriting the super class
 	}
 
 	@Override
-	public void printDetails() // print details method for printing all details...//polymorphisam
+	public void printDetails() // print details method for printing all details...
 	{
 
-		Iterator<Map.Entry<Integer, Area>> itr = map.entrySet().iterator();// using iterator for iterating the records..
+		Iterator<Map.Entry<Integer, Area>> itr = map.entrySet().iterator();// using iterator for iterating the
+																			// records...
 
-		while (itr.hasNext()) // itr.hasnext method will returns boolean values..
+		while (itr.hasNext()) // itr.hasnext method will returns boolean values...
 		{
-			Map.Entry<Integer, Area> entry = itr.next(); // it stores the records one by one in entry
-			System.out.println(entry.getValue()); // getting the records by using entry.getvalue method..
+			Map.Entry<Integer, Area> entry = itr.next(); // it stores the records one by one in entry...
+			System.out.println(entry.getValue()); // getting the records by using entry.getvalue method...
 		}
 
 	}
@@ -48,12 +59,21 @@ public class ZipService2 extends ZipService1 // inheriting the super class
 		if (map.containsKey(pinCode)) {
 			System.out.println(map.get(pinCode));
 		} else {
-			System.out.println("Please enter correct pin code...");
+			System.out.println("Entered pincode is not there in our data. So Please enter correct pin code...");
 		}
 	}
 
 	@Override
-	public void savaDetails() {
+	public void savaDetails() // Here we can save the new details enter by the user...
+	{
+
+		System.out.println("Please Enter your pincode: ");
+		Integer pinCode = scanner.nextInt();
+
+		while (map.containsKey(pinCode)) {
+			System.out.println("Entered pincode is alredy there in our records...so please enter new pincode...");
+			pinCode = scanner.nextInt();
+		}
 
 		System.out.println("Please Enter your country name: ");
 		String countryName = scanner.next();
@@ -70,9 +90,6 @@ public class ZipService2 extends ZipService1 // inheriting the super class
 
 		System.out.println();
 
-		System.out.println("Please Enter your pincode: ");
-		Integer pinCode = scanner.nextInt();
-
 		System.out.println();
 
 		map.put(pinCode, new Area(countryName, stateName, areaName, pinCode));
@@ -84,7 +101,8 @@ public class ZipService2 extends ZipService1 // inheriting the super class
 	}
 
 	@Override
-	public void getByChoice() {
+	public void getByChoice() // Here we can details according to the users choice...
+	{
 
 		String str;
 		do {
@@ -108,7 +126,7 @@ public class ZipService2 extends ZipService1 // inheriting the super class
 
 				break;
 			default:
-				System.out.println("Please enter correcrt nmber...");
+				System.out.println("Please enter correct nmber...");
 			}
 
 			System.out.println();
