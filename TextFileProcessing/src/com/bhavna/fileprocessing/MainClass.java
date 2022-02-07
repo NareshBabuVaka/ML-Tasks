@@ -15,9 +15,9 @@ import com.bhavna.service.LoginService;
 public class MainClass {
 
 	public static void main(String[] args) {
-		LoginService ls1 = new LoginService();
+		LoginService loginservice = new LoginService();
 		try {
-			ls1.getByOptions();
+			loginservice.getByOptions();
 		} catch (OwnExceptions e) {
 			System.out.println(e.getMessage());
 		}
