@@ -47,12 +47,5 @@ public class EmployeeInfo {
 		this.location = location;
 	}
 
-	public int compareTo(EmployeeInfo e2) {
-		if (this.getName() == e2.getLocation()) {
-			return this.getName().compareTo(e2.getName());
-		} else {
-			return this.getLocation().compareTo(e2.getLocation());
-		}
-	}
-
+ 
 }

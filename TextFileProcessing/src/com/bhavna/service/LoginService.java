@@ -36,6 +36,7 @@ public class LoginService extends MethodDetails {
 		FileReader filereader = new FileReader(file);
 		BufferedReader bufferrd = new BufferedReader(filereader);
 		String str;
+
 		while ((str = bufferrd.readLine()) != null) {
 			String[] starr = str.split("\n");
 			for (String s : starr) {
@@ -106,6 +107,7 @@ public class LoginService extends MethodDetails {
 		}
 
 		while (true) {
+
 			System.out.println("if you want to know no of persons logged in a perticular date press 1 : ");
 			System.out.println("if you want to know get the details of no of persons logged in a perticular date press 2 : ");
 			System.out.println("if you want to know the data of all details on all dates press 3 : ");
