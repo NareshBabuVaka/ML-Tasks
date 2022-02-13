@@ -62,30 +62,29 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 
 	}
 
-	// Fetching the Employee Table Data:
+	// This method is fetching the department table data:
 	@Override
 	public void retrivingDepartmentData() {
 		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Naresh;userName=sa;password=Bhavna@123";
 
 		try {
-			System.out.println("Fetching the Records From the Dep Table: ");
+			System.out.println(" Here it is Fetching the Records From the Department Table: ");
 			System.out.println();
 			Connection connection = DriverManager.getConnection(connectionUrl);
 
 			Statement statement = connection.createStatement();
-			System.out.println("Enter the Select Query to Fetch the Department Table Data");
+			System.out.println("Enter the  Query to retrive the Department Table Data...");
 			String fetchingEmpDataQuery = scanner.nextLine();
 
-			// String fetchingEmpQuery="SELECT * FROM EMPLOYEE_TABLE";
-
-			ResultSet resultSet = statement.executeQuery(fetchingEmpDataQuery); // Executing Select the Query
+			System.out.println();
+			ResultSet resultSet = statement.executeQuery(fetchingEmpDataQuery);
 			System.out.println("DEPTID\t" + "DEPTNAME\t");
-			System.out.println("===================");
+			System.out.println("**********************");
 			while (resultSet.next()) {
 				System.out.println(resultSet.getString(1) + "\t" + resultSet.getString(2));
 			}
 			System.out.println();
-			System.out.println("Records Fetched from the Dept Table! ");
+			System.out.println("Here are the records from department table that you want... ");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -93,38 +92,37 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 
 	}
 
-	// Fetching the Employee Table Data:
+	// This method is fetching the Employee table Data:
 	@Override
 	public void retrivingEmployeeData() {
 		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Naresh;userName=sa;password=Bhavna@123";
 
 		try {
-			System.out.println("Fetching the Records From the Emp Table: ");
+			System.out.println(" Here it is Fetching the Records From the employee Table: ");
 			System.out.println();
-			System.out.println("Enter the Select Query to Fetch the Employement Table Data");
+			System.out.println("Enter the  Query to retrive  the Employement Table Data...");
 			String fetchingEmpDataQuery = scanner.nextLine();
-
-			// String fetchingEmpQuery="SELECT * FROM EMPLOYEE_TABLE";
 
 			Connection connection = DriverManager.getConnection(connectionUrl);
 
 			Statement statement = connection.createStatement();
 
-			ResultSet resultSet = statement.executeQuery(fetchingEmpDataQuery); // Executing Select the Query
+			ResultSet resultSet = statement.executeQuery(fetchingEmpDataQuery);
 			System.out.println("EMPID\t\tEMPNAME\t\tEMPSAL\t\tDOJ\t\tDEPTID");
-			System.out.println("==========================================================================");
+			System.out.println("**********************************************************************");
 			while (resultSet.next()) {
 				System.out.println(resultSet.getString(1) + "\t\t" + resultSet.getString(2) + "\t\t"
 						+ resultSet.getString(3) + "\t" + resultSet.getString(4) + "\t" + resultSet.getString(5));
 			}
 			System.out.println();
-			System.out.println("Records Fetched from the Emp Table! ");
+			System.out.println("Here are the records from employee table that you want... ");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 
 	}
 
+	// This method is inserting the data into employee table:
 	@Override
 	public void insertIntoEmployeeTable() {
 		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Naresh;userName=sa;password=Bhavna@123";
@@ -149,13 +147,14 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 					+ date + "\'," + deptId + ")";
 			statement.executeUpdate(insertQuery);
 			System.out.println();
-			System.out.println("Record was inserted successfully! ");
+			System.out.println("The entered records are saved successfully...! ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
 
+	// This method is inserting the data into department table:
 	@Override
 	public void insertIntoDepartmentTable() {
 		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Naresh;userName=sa;password=Bhavna@123";
@@ -173,12 +172,14 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 			String insertQuery = "INSERT INTO DEPARTMENT_TABLE VALUES(" + deptId + ",\'" + deptName + "\')";
 			statement.executeUpdate(insertQuery);
 			System.out.println();
-			System.out.println("Record was inserted successfully! ");
+			System.out.println("The entered records are saved successfully...! ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
+
+	// This method is updating the employee table:
 
 	@Override
 	public void updatingEmployeeTable() {
@@ -188,20 +189,20 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 
 			Connection connection = DriverManager.getConnection(connectionUrl);
 			Statement statement = connection.createStatement();
-			// String updateQuery = "UPDATE EMPLOYEE_TABLE SET ENAME=\'Naresh\' WHERE
-			// EMPID=101";
 
-			System.out.println("Enter a query to update the records in emp  table...");
+			System.out.println("Enter a query to update the records in employee  table...");
 			String updateQuery = scanner.nextLine();
 
 			statement.executeUpdate(updateQuery);
 			System.out.println();
-			System.out.println("ONE RECORD IS UPDATED! ");
+			System.out.println("The changed record is updated successfully... ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
+
+	// This method is updating the department table:
 
 	@Override
 	public void updatingDepartmentTable() {
@@ -211,19 +212,19 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 
 			Connection connection = DriverManager.getConnection(connectionUrl);
 			Statement statement = connection.createStatement();
-			// String updateQuery = "UPDATE DEPARTMENT_TABLE SET DEPTNAME=\'Naresh\' WHERE
-			// DEPTID=101";
-			System.out.println("Enter a query to update the records in dept table...");
+			System.out.println("Enter a query to update the records in department table...");
 			String updateQuery = scanner.nextLine();
 
 			statement.executeUpdate(updateQuery);
-			System.out.println("ONE RECORD IS UPDATED! ");
+			System.out.println("The changed record is updated successfully... ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
 
+	// This method is counting the number of employees whose salary is greater than
+	// 24000
 	@Override
 	public void employeeCount() {
 		String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Naresh;userName=sa;password=Bhavna@123";
@@ -235,30 +236,36 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 			String query = "select deptName,count(*) as num from DEPARTMENT_TABLE d inner join EMPLOYEE_TABLE e on e.DEPTID=d.DEPTID where EMPSAL>=24000 group by DEPTNAME";
 			ResultSet resultset = callablestatement.executeQuery(query);
 			while (resultset.next()) {
-				System.out.println(resultset.getString(1) + " " + resultset.getString(2));
+				System.out.println("Number of persons whose salary is greater than 24000 in  department "
+						+ resultset.getString(1) + ":" + " " + resultset.getString(2) + "");
 			}
 			System.out.println();
-			System.out.println("Query is Executed Successfully: ");
+			System.out.println("The query is executed successfully... ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	// This is the get by choice method
 	@Override
 	public void selectYourChoice() {
 
 		while (true) {
 
-			System.out.println("Press 1 to Create the Emp Table in the Database: ");
-			System.out.println("Press 2 to Create the Dept Table in the Database: ");
-			System.out.println("Press 3 to Fetch the Data From Emp Table: ");
-			System.out.println("Press 4 to Fetch the Data From Dept Table: ");
-			System.out.println("Press 5 to Insert the Data into Emp Table: ");
-			System.out.println("Press 6 to Insert the Data into Dept Table: ");
-			System.out.println("Press 7 to Update the Data in the Emp Table: ");
-			System.out.println("Press 8 to Update the Data in the Dept Table: ");
-			System.out.println(
-					"Press 9 to Count the Number of Employees Group by Department Name and Greater Than 30000 Salary:");
+			System.out.println("If you want to create the employee table in database enter 1:  ");
+			System.out.println("If you want to create the department table in database enter 2: ");
+
+			System.out.println("If you want to fetech the data from employee table enter 3: ");
+			System.out.println("If you want to fetech the data from department table enter 4: ");
+
+			System.out.println("If you want to insert the data into the employee table press 5:  ");
+			System.out.println("If you want to insert the data into the department table press 6:  ");
+
+			System.out.println("If you want to update the data into the employee table press 7:  ");
+			System.out.println("If you want to update the data into the department table press 8:  ");
+			System.out.println("If you want to Count the Number of Employees Group by Department "
+					+ " Name and Greater Than 24000 Salary press 9:");
+			System.out.println();
 			System.out.println("Please Enter Your Choice: ");
 			int option = scanner.nextInt();
 			scanner.nextLine();
@@ -300,7 +307,7 @@ public class EmpDetailsImplementation extends EmployeeInformation {
 				System.out.println();
 				break;
 			default:
-				System.out.println("Please Provide a Valid Option: ");
+				System.out.println("Entered option is wrong please enter correct option:  ");
 				System.out.println();
 			}
 			System.out.println();

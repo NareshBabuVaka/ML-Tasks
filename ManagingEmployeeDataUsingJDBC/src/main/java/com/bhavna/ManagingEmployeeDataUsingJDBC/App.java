@@ -9,28 +9,16 @@
 //select deptName,count(*) as num from DEPT d inner join EMP e on e.DEPTID=d.DEPTID where ESAL>=3000 group by DEPTNAME
 //
 
-package com.bhavna.service1;
+package com.bhavna.ManagingEmployeeDataUsingJDBC;
 
-public abstract class EmployeeInformation 
-{
-	abstract public void creatingEmployeeTable();
+import com.bhavna.service1.EmployeeInformation;
+import com.bhavna.service2.EmpDetailsImplementation;
 
-	abstract public void creatingDepartmentTable();
+public class App {
+	public static void main(String[] args) {
+		EmployeeInformation ei = new EmpDetailsImplementation();
 
-	abstract public void retrivingEmployeeData();
+		ei.selectYourChoice();
 
-	abstract public void retrivingDepartmentData();
-
-	abstract public void employeeCount();
-
-	abstract public void insertIntoEmployeeTable();
-
-	abstract public void insertIntoDepartmentTable();
-
-	abstract public void updatingEmployeeTable();
-
-	abstract public void updatingDepartmentTable();
-
-	abstract public void selectYourChoice();
-
+	}
 }
