@@ -31,15 +31,17 @@ public class LoginService extends MethodDetails {
 
 	@Override
 	public void textFileProcessing() throws OwnExceptions, IOException {
-		File file = new File("details.txt");
+		File file = new File("details.txt"); //feteching the text file..
 
-		FileReader filereader = new FileReader(file);
-		BufferedReader bufferrd = new BufferedReader(filereader);
+		FileReader filereader = new FileReader(file); //through file reader reading the file...
+		BufferedReader bufferrd = new BufferedReader(filereader); //to read the stream of charactors from specified file...
 		String str;
 
-		while ((str = bufferrd.readLine()) != null) {
-			String[] starr = str.split("\n");
-			for (String s : starr) {
+		while ((str = bufferrd.readLine()) != null) 
+		{
+			String[] starr = str.split("\n"); //here it is splitting up to new line...
+			for (String s : starr) 
+			{
 				s = s.replaceAll("\\s{2,}", " ").trim();
 				String[] stringDate = s.split("\\s");
 
