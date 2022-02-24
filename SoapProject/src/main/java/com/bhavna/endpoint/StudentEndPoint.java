@@ -1,3 +1,9 @@
+/**
+ * 1. Create SOAP rent endpoint
+ * 2. Get .wsdl response
+ * 3. Using SOAP UI send request and get response for created endpoint 
+ */
+
 package com.bhavna.endpoint;
 
 import org.springframework.beans.factory.annotation.Autowired;

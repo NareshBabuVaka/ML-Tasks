@@ -1,3 +1,8 @@
+/**
+ * 1. Create SOAP rent endpoint
+ * 2. Get .wsdl response
+ * 3. Using SOAP UI send request and get response for created endpoint 
+ */
 package com.bhavna.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -10,7 +15,6 @@ import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
-
 
 @Configuration
 @EnableWs
