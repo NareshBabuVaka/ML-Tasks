@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.bhavna.com/student"
+	xmlns:tns="http://www.bhavna.com/student"
+	elementFormDefault="qualified">
+
+
+
+	<xsd:element name="StudentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="rollNo" type="xsd:int" />
+				<xsd:element name="studentName" type="xsd:string" />
+				<xsd:element name="teluguMarks" type="xsd:double" />
+				<xsd:element name="hindiMarks" type="xsd:double" />
+				<xsd:element name="englishMarks" type="xsd:double" />
+				<xsd:element name="mathsMarks" type="xsd:double" />
+				<xsd:element name="maximumTotalMarks" type="xsd:double" />
+			 
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="StudentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="totalMarks" type="xsd:string" />
+				<xsd:element name="averageMarks" type="xsd:string" />
+				<xsd:element name="result" type="xsd:string" />
+				<xsd:element name="percentage" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

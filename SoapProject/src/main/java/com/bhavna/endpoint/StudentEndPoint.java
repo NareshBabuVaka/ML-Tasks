@@ -1,0 +1,25 @@
+package com.bhavna.endpoint;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import com.bhavna.service.StudentService;
+import com.bhavna.student.StudentRequest;
+import com.bhavna.student.StudentResponse;
+
+@Endpoint
+public class StudentEndPoint {
+
+	private static final String NAMESPACE = "http://www.bhavna.com/student";
+	@Autowired
+	private StudentService service;
+
+	@PayloadRoot(namespace = NAMESPACE, localPart = "StudentRequest")
+	@ResponsePayload
+	public StudentResponse getStudentMarks(@RequestPayload StudentRequest request) {
+		return service.studentData(request);
+	}
+}
