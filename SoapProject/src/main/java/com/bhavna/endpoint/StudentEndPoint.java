@@ -4,7 +4,7 @@
  * 3. Using SOAP UI send request and get response for created endpoint 
  */
 
-package com.bhavna.endpoint;
+package com.bhavna.endpoint; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -16,11 +16,11 @@ import com.bhavna.service.StudentService;
 import com.bhavna.student.StudentRequest;
 import com.bhavna.student.StudentResponse;
 
-@Endpoint
+@Endpoint//for accessing url and get service from http we use this.
 public class StudentEndPoint {
 
 	private static final String NAMESPACE = "http://www.bhavna.com/student";
-	@Autowired
+	@Autowired //it will bind two classes
 	private StudentService service;
 
 	@PayloadRoot(namespace = NAMESPACE, localPart = "StudentRequest")
