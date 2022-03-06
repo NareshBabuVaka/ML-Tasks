@@ -1,0 +1,33 @@
+USE GymManagement;
+CREATE TABLE Gym (gymId INT PRIMARY KEY,
+                  gymName VARCHAR(50),
+                  gymBranch VARCHAR(50),
+                  gymAddress VARCHAR(50));
+
+
+CREATE TABLE Customer (customerId INT PRIMARY KEY,
+                           customerName VARCHAR(50),
+                           customerPlan VARCHAR(50),
+						   customerPhoneNumber BIGINT,
+                           customerBranch VARCHAR(50),
+                           customerAddress VARCHAR(50),
+                        gymId INT FOREIGN KEY REFERENCES Gym(gymId));
+
+INSERT INTO Gym VALUES(1,'SRR_GYM','KOTTAPETA','GUNTUR'),
+                      (2,'VNB_GYM','RAILNAGAR','VIJAYAWADA'),
+                      (3,'VVR_GYM','KUKATPALLY','HYDERABAD'),
+                      (4,'VDL_GYM','JAMPET','RAJAHMUNDRY');
+
+
+
+INSERT INTO Customer VALUES (100,'NARESH','12 MONTHS',1234567890,'JAMPET','RAJAHMUNDRY',4),
+                             (101,'RAGHU','6 MONTHS',1234567890,'RAILNAGAR','VIJAYAWADA',2),
+							 (102,'MALLIK','12 MONTHS',1234567890,'KUKATPALLY','HYDERABAD',3),
+						     (103,'SRAVAN','3 MONTHS',1234567890,'KOTTAPETA','GUNTUR',1),
+                             (104,'SATHISH','6 MONTHS',1234567890,'RAILNAGAR','VIJAYAWADA',2),
+                             (105,'RAJINIKANTH','12 MONTHS',1234567890,'JAMPET','RAJAHMUNDRY',4),
+                             (106,'SRIKANTH','3 MONTHS',1234567890,'KUKATPALLY','HYDERABAD',3),
+                             (107,'NARASIMHA','12 MONTHS',1234567890,'KOTTAPETA','GUNTUR',1);
+                             
+                             
+

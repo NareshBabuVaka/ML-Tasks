@@ -15,10 +15,11 @@ import com.bhavna.service.ProductServiceI;
 public class ProductsController {
 	
 	@Autowired
-	ProductServiceI serv;
+	ProductServiceI service;
 	
 	@GetMapping("/list")
-	public List<Product> getAllItems(){
-		return serv.getAll();
+	public List<Product> getAllItems() //First it will executes getAll items method...
+	{
+		return service.getAll(); //Then it will retrieves all the data present in product service table...
 	}
 }

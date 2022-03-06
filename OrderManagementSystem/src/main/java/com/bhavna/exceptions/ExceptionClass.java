@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionClass {
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException noSuchElementException){
-		return new ResponseEntity<String>("The ID is not present in db please check it..",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("The data that you are looking is not present in your data base...",HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<String> handleEntityNotFoundException(EntityNotFoundException entityNotFoundException){
-		return new ResponseEntity<String>("please check the details that you are entering are must be presentin db..",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("please verify the data that you are enterd. It must and should present in your data base...",HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<String> handleNullPointerException(NullPointerException nullPointerException){
-		return new ResponseEntity<String>("All required fields shold be present and it shouldn't null",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("You have to give all the required fields data it should not be null...",HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(MyException.class)
 	public ResponseEntity<String> handleEmptyException(MyException myException){
-		return new ResponseEntity<String>("quantity should be 1 or greater than 1 only ",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("Please provide the quatity greater than or equals to 1... ",HttpStatus.BAD_REQUEST);
 	}
 }

@@ -17,44 +17,45 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bhavna.model.Orders;
 import com.bhavna.service.OrderServiceI;
-@RestController
+@RestController //This annotation is used to create RESTful web services i.e web-based applications and apis...
 @RequestMapping("/orders")
 public class OrdersController {
 
 	@Autowired
-	OrderServiceI serv;
+	OrderServiceI service;
 	
 	@GetMapping("/list")
 	public List<Orders> getAllOrders(){
-		return serv.geAllOrders();
+		return service.geAllOrders();
 	}
 	
 	@PostMapping("/add")
 	public String addOrder(@RequestBody Orders order) {
-		 serv.addOrder(order);
-		return "Your order added successfully";
+		 service.addOrder(order);
+		return "Your order is added successfully...";
 	}
 	
 	
 	@GetMapping("/get/{id}")
 	public Optional<Orders> getOrderById(@PathVariable("id") Integer id) {
-		return serv.getOrderById(id);
+		return service.getOrderById(id);
 	}
 	
 	@DeleteMapping("/delete/{id}")
 	public String deleteOrderById(@PathVariable("id") Integer id) {
-		serv.deleteOrder(id);
-		return "Your order deleted successfully";
+		service.deleteOrder(id);
+		return "Your order is deleted successfully...";
 	}
 	
 	@PutMapping("/update/{order_id}")
 	public Orders updateByCategory(@PathVariable("order_id") Integer order_id,@RequestBody Orders order) {
-		return	serv.updateOrder(order_id, order);
+		return	service.updateOrder(order_id, order);
 
 	}
 	
 	@PatchMapping("/patch/{id}")
-	public Orders patchOrder(@PathVariable("id") Integer id, @RequestParam(name = "item", required=false) Integer item_id,  @RequestParam(name = "quantity", required=false) Integer quantity) {
-		return serv.patchOrder(id, item_id, quantity);
+	public Orders patchOrder(@PathVariable("id") Integer id, @RequestParam(name = "item", required=false) Integer item_id, 
+			                                                 @RequestParam(name = "quantity", required=false) Integer quantity) {
+		return service.patchOrder(id, item_id, quantity);
 	}
 }
