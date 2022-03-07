@@ -6,13 +6,12 @@ import com.bhavna.entity.CustomerEntity;
 import com.bhavna.entity.GymEntity;
 
 public interface GymService {
-	public List<CustomerEntity> getCustomers();
+	public List<GymEntity> getCustomers();
 
-	public void saveCustomer(GymEntity gym);
+	public void saveCustomer(CustomerEntity customer);
 
-	public GymEntity getCustomer(int customerId);
-	
-//	public GymService getCustomerById(int empId);
+	public void updateCustomer(int customerId, CustomerEntity customer);
 
+	public CustomerEntity getCustomer(int theId);
 
 }

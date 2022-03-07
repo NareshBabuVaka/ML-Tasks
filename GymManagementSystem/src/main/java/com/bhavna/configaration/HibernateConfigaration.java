@@ -49,14 +49,12 @@ public class HibernateConfigaration {
 		properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
 		properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
 		return properties;
-		}
+	}
 
-
-
-		@Bean
-		public HibernateTransactionManager getTransactionManager() {
+	@Bean
+	public HibernateTransactionManager getTransactionManager() {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
-		}
+	}
 }

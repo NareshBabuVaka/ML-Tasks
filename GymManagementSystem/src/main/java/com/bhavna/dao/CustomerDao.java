@@ -21,25 +21,38 @@ public class CustomerDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public List<CustomerEntity> getCustomers() {
+	public List<GymEntity> getCustomers() {
 		Session session = sessionFactory.openSession();
 		CriteriaBuilder criteriabuilder = session.getCriteriaBuilder();
-		CriteriaQuery<CustomerEntity> criteriaquery = criteriabuilder.createQuery(CustomerEntity.class);
-		Root<CustomerEntity> root = criteriaquery.from(CustomerEntity.class);
+		CriteriaQuery<GymEntity> criteriaquery = criteriabuilder.createQuery(GymEntity.class);
+		Root<GymEntity> root = criteriaquery.from(GymEntity.class);
 		criteriaquery.select(root);
 		Query query = session.createQuery(criteriaquery);
 		return query.getResultList();
 	}
 
-	public void saveCustomer(GymEntity customer) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.save(customer);
+	public void saveCustomer(CustomerEntity customer) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(customer);
+		session.getTransaction().commit();
+		session.close();
 	}
 
-	public GymEntity getCustomerById(int id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		GymEntity customer1 = currentSession.get(GymEntity.class, id);
-		return customer1;
+	public void updateCustomer(int customerId, CustomerEntity customer) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(customer);
+		session.getTransaction().commit();
+		session.close();
+
+	}
+
+	public CustomerEntity getCustomerById(int customerId) {
+		Session currentSession = sessionFactory.openSession();
+		CustomerEntity theCustomer = currentSession.get(CustomerEntity.class, customerId);
+		currentSession.close();
+		return theCustomer;
 	}
 
 }
