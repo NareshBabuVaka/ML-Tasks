@@ -1,0 +1,29 @@
+USE Employee;
+CREATE TABLE EmployeeTable (ID INT PRIMARY KEY,
+                            ENAME VARCHAR(50),
+                            AGE VARCHAR(50),
+                            SALARY VARCHAR(50),
+			               JOB_TITLE VARCHAR(50),
+				            GENDER VARCHAR(50));
+
+
+
+ 
+INSERT INTO EmployeeTable VALUES(1,'NARESH',23,23900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+                                (2,'SRAVAN',26,24900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+                                (3,'SATHISH',25,26900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+                                (4,'MALLIK',24,28900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+								(5,'RAJINI',25,25900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+								(6,'NARASIMHA',25,29900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+					            (7,'SRIKANTH',25,26900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+                                (8,'TRIVED',25,26900.00,'SOFTWARE_ENGINEER_TRAINEE','MALE'),
+								(9,'SAI',25,26900.00,'SOFTWARE_ENGINEER_TRAINEE','FEMALE'),
+								(10,'ANU',25,26900.00,'SOFTWARE_ENGINEER_TRAINEE','FEMALE');
+
+
+
+
+
+
+                        
+
