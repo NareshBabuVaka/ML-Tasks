@@ -10,13 +10,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.bhavna.entity.EmployeeEntity;
-import com.bhavna.repsitary.EmployeeRepositary;
+import com.bhavna.repository.EmployeeRepository;
 
 @Service
 public class EmployeeServiceImplementation implements EmployeeService {
 
 	@Autowired
-	private EmployeeRepositary employeeRepositary;
+	private EmployeeRepository employeeRepositary;
 
 	@Override
 	public List<EmployeeEntity> getEmployess() {

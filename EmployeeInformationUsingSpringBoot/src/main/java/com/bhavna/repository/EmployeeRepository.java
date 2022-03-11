@@ -1,4 +1,4 @@
-package com.bhavna.repsitary;
+package com.bhavna.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.bhavna.entity.EmployeeEntity;
 
 @Repository
-public interface EmployeeRepositary extends JpaRepository<EmployeeEntity, Integer> {
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
 
 }
